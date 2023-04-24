@@ -149,7 +149,7 @@ $$>install.packages("RWeka", lib="/path/to/library")$$
 
 ### Estructuras de datos R
 
-Las estructuras de datos que se utilizan en R están diseñadas con el fin de facilitar la manipulación de los datos, las estructuras más utilizadas son: vectores, factores, listas, matrices y marco de datos.
+Las estructuras de datos que se utilizan en R están diseñadas con el fin de facilitar la manipulación de los datos, las estructuras más utilizadas son: vectores, factores, listas, matrices y data frames.
 
 ### Vectores
 
@@ -224,7 +224,7 @@ gender[1]
 blood[1]
 ```
 
-Esta estructura no permite agregar todos los datos m\[edicos de un paciente en un objeto que se utilice de manera repetida
+Esta estructura no permite agregar todos los datos m\[edicos de un paciente en un objeto que se utilice de manera repetida. Similar al comando anterior se utiliza el comando list( ), adem\[as de permitir asignar un nombre para cada valor en la secuencia.
 
 ```{r}
 subject1 <- list(fullname = subject_name[1],
@@ -234,10 +234,40 @@ gender = gender[1],
 blood = blood[1])
 ```
 
+Para poder visualizar los datos se utiliza:
+
 ```{r}
 subject1$fullname
 subject1$temperature
 subject1$flu_status
 subject1$gender
 subject1$blood
+```
+
+```{r}
+sujeto1[2]
+sujeto1$temperatura
+sujeto1[c("temperatura", "estado_gripe")]$temperatura
+sujeto1[c("temperatura", "estado_gripe")]$estado_gripe
+```
+
+### Data frames
+
+La estructura de datos de R más importante utilizada en el aprendizaje automático es data frames, esta estructura es similar a una hoja de cálculo (filas, columnas). Para explicar como crear un data frame utilizaremos los vectores de datos de pacientes que anteriormente se crearon.
+
+```{r}
+pt_data <- data.frame(subject_name, temperature, flu_status,gender, blood, stringsAsFactors = FALSE)
+```
+
+Como se observa se adiciono el parámetro stringsAsFactors = FALSE, al especificar esta opción impedimos que R convierta cada vector de caracteres en un factor. Los datos se muestran en forma de matriz.
+
+```{r}
+pt_data
+```
+
+Para extraer columnas enteras la forma más directa es referirse por el nombre:
+
+```{r}
+ pt_data$subject_name
+ pt_data[c("temperature", "flu_status")]
 ```
