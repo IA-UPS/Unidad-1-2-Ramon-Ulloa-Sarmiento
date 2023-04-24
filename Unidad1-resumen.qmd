@@ -2,6 +2,7 @@
 title: "Resumen-cap1-2"
 format: pdf
 editor: visual
+author: "Nelson Sarmiento","Nayeli Ramon", "Valeria Ulloa"
 ---
 
 ## Los orígenes del aprendizaje
@@ -111,6 +112,36 @@ Los algoritmos de aprendizaje automático se dividen en:
 -   Modelo Predictivo: Usado para tareas de predicción de un valor usando otros valores en el conjunto de datos. El algoritmo de aprendizaje intenta descubrir y modelar la relación entre el objetivo característico recibiendo instrucciones claras sobre lo que necesitan aprender y cómo deben aprenderlo, el proceso de entrenamiento de un modelo predictivo se conoce como aprendizaje supervisado.
 
 -   Modelo Descriptivo: se utiliza para tareas que se beneficiarían de la información obtenida al resumir datos de formas nuevas e interesantes. A diferencia de los modelos predictivos que predicen un objetivo de interés, manteniendo la misma importancia para todas las características de dicho objetivo. De tal manera que el modelo también es llamado aprendizaje sin supervisión
+
+### HACER COINCIDIR SUS DATOS CON UN ALGORITMO APROPIADO
+
+En la tabla 1 se pueden observar los tipos generales de algoritmos:
+
+![Figura 1. Tipos de algoritmos](Tipos%20de%20algoritmos.png)
+
+Para hacer doincidir una tarea de aprendizaje con un enfoque autom\[atico es necesario comenzar con 4 tipos de tareas:
+
+-   Clasificación
+
+-   Predicción numérica
+
+-   Detección de patrones
+
+-   Agrupación
+
+#### Uso de R para el aprendizaje automático
+
+#### 
+
+### Instalación y carga de paquetes R
+
+# Gestión y comprender los datos
+
+### Estructuras de datos R
+
+### Vectores
+
+### Factores
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
