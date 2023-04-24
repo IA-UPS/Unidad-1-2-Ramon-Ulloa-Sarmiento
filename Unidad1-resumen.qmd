@@ -1,0 +1,124 @@
+---
+title: "Resumen-cap1-2"
+format: pdf
+editor: visual
+---
+
+## Los orígenes del aprendizaje
+
+Las primeras bases de datos han sido registradas por el entorno observable, ya que primero se observa y luego se registra en papel, pero hoy en día estos datos son registrados a través de bases de datos computarizadas que han ido en constante crecimiento.
+
+Un aporte para estas bases ha sido la invención de los sensores, los cuales procesan los datos de manera muy distinta a una persona sin necesidad de traducción al lenguaje humano, los datos sensoriales en bruto siguen siendo objetivos.
+
+Los cuales se han implementado en el campo de estudio interesado en el desarrollo de algoritmos informáticos para la transformación de datos en acciones inteligentes se conoce como aprendizaje automático. El constante crecimiento de los datos requería potencia informática adicional, lo que a su vez estimuló el desarrollo de métodos estadísticos para analizar grandes conjuntos de datos. Esto creó un ciclo de avance que permitió recopilar datos aún más grandes e interesantes.
+
+## Usos y abusos del aprendizaje automático
+
+El aprendizaje automático por lo general es utilizado para:
+
+• Predecir los resultados de las elecciones
+
+• Identifique y filtre los mensajes de spam del correo electrónico
+
+• Prever actividad delictiva
+
+• Automatice las señales de tráfico de acuerdo con las condiciones de la carretera
+
+• Producir estimaciones financieras de tormentas y desastres naturales
+
+• Examinar la rotación de clientes
+
+• Crea aviones de pilotaje automático y coches de conducción automática.
+
+• Identificar personas con capacidad para donar
+
+• Dirigir la publicidad a tipos específicos de consumidores
+
+Para ello un algoritmo de aprendizaje automático toma datos e identifica patrones que se pueden usar para la acción. En algunos casos, los resultados son tan exitosos que parecen alcanzar un estatus casi legendario.
+
+Pero a su vez los datos de varias personas son usado para un algoritmo de aprendizaje automático que aprende patrones típicos de comportamiento que luego se pueden usar para hacer recomendaciones.
+
+### **CONSIDERACIONES ÉTICAS**
+
+Para usar de manera los algoritmos se debe tener precaución al obtener o analizar datos para evitar infringir leyes, violar términos de servicio o acuerdos de uso de datos, abusar de la confianza o violar la privacidad de los clientes o del público. Por cual se usa ciertas jurisdicciones que pueden impedir usar datos raciales, étnicos, religiosos u otras clases.
+
+Tomando en cuenta que excluir datos personales puede no ser suficiente, debido que algunos algoritmos de aprendizaje automático pueden aprender esta información de forma independiente sin darse cuenta
+
+### **CÓMO APRENDEN LAS MAQUINAS**
+
+El aprendizaje de una maquina tiene un procedimiento similar a un humano, esta se puede dividir de la siguiente manera
+
+-   Entrada de datos: es la observación, almacenamiento de memoria y recuerdo para proporcionar una base fáctica para un razonamiento posterior.
+
+-   Abstracción: Implica la traducción de datos en representaciones más amplias.
+
+-   Generalización: Utiliza datos abstractos parra formar una base para la acción
+
+Las estrategias de aprendizaje comúnmente utilizadas para crear un esquema o un mapa conceptual son similares a cómo una máquina realiza la abstracción del conocimiento
+
+En los seres humanos, todo el proceso ocurre de manera subconsciente. Recordamos, deducimos, inducimos e intuimos. Sin embargo, para una computadora, estos procesos deben hacerse explícitos. Por otro lado, este es un beneficio del aprendizaje automático. Debido a que el proceso es transparente, el conocimiento aprendido se puede examinar y utilizar para acciones futuras.
+
+### **ABSTRACCION Y REPRESENTACION DEL CONOCIMEINTO**
+
+### **GENERALIZACIÓN**
+
+El término generalización describe el proceso de convertir el conocimiento abstracto en una forma que se puede utilizar para la acción. Específicamente, si imagina un conjunto hipotético que contiene todas las teorías posibles que podrían establecerse a partir de los datos, la generalización implica la reducción de este conjunto a un número manejable de hallazgos importantes.
+
+El algoritmo empleará heurística, o conjeturas informadas sobre dónde encontrar los conceptos más importantes.
+
+Pero también se debe tomar en cuenta que las heurísticas empleadas por los algoritmos de aprendizaje automático también dan lugar a veces a conclusiones erróneas. Si las conclusiones son sistemáticamente imprecisas, se dice que el algoritmo tiene una inclinación
+
+### **EVALUAR EL ÉXITO DEL APRENDIZAJE**
+
+Una vez que un modelo ha sido entrenado en un conjunto de datos inicial, el modelo se prueba en un nuevo conjunto de datos y se juzga en qué medida su caracterización de los datos de entrenamiento se generaliza a los nuevos datos
+
+En parte, el hecho de que los modelos no generalicen perfectamente se debe al problema de ruido, o variaciones inexplicables en los datos. Tales como:
+
+• Error de medición debido a sensores imprecisos que a veces suman o restan
+
+un bit de la lectura
+
+• Problemas con los datos de informes, como que los encuestados informen respuestas aleatorias a
+
+las preguntas de la encuesta para terminar más rápido
+
+• Errores causados cuando los datos se registran incorrectamente, incluidos valores faltantes, nulos,
+
+truncados, codificados incorrectamente o dañados
+
+Se dice que un modelo que parece funcionar bien durante el entrenamiento, pero lo hace mal durante las pruebas está sobre ajustado al conjunto de datos de entrenamiento, ya que no se generaliza bien.
+
+### **PASOS PARA APLICAR EL APRENDIZAJE AUTOMÁTICO A SUS DATOS**
+
+1.  Recolectando datos: los datos registrados ya sea en una hoja de papel o en hojas de cálculo, se deberá pasarse a un formato electrónico adecuado para el análisis, de tal manera que los datos nos sirvan como material de aprendizaje que utiliza un algoritmo para generar conocimiento procesable
+2.  Exploración y preparación de los datos: Para la preparación de datos se necesita una calidad alta en los datos que se utilizan, debido a que un 80% del aprendizaje automático se dedica a aprender más de los mismos y sus matices mediante la exploración de datos.
+3.  Entrenamiento de un modelo en los datos: Una vez preparados los datos para el análisis, se podrá tener una idea mas clara sobre lo que se espera aprender de dichos datos.  Lo cual se transmitirá a través de un algoritmo apropiado que representará los datos en forma de modelo
+4.  Evaluación del rendimiento del modelo: Es importante evaluar el aprendizaje del algoritmo a partir de su experiencia. Este se puede evaluar mediante la precisión del modelo para desarrollar medidas de rendimiento específicas para la aplicación.
+5.  Mejora del rendimiento del modelo: En caso de ser necesario un mejoramiento del modelo, se utiliza estrategias más avanzadas para un mayor rendimiento del modelo, además de ayudarse con datos adicionales y en últimos casos cambiar completamente el modelo
+
+### **ELEGIR UN ALGORITMO DE APRENDIZAJE AUTOMÁTICO**
+
+Para poder elegir un algoritmo adecuado de manera eficiente, se hace coincidir las características de los datos de los enfoques disponibles. Por lo cual es útil pensar en este procedimiento mientras se recopila, explora y limpia los datos.
+
+### **PENSANDO EN LOS TIPOS DE ALGORITMOS DE APRENDIZAJE AUTOMÁTICO**
+
+Los algoritmos de aprendizaje automático se dividen en:
+
+-   Modelo Predictivo: Usado para tareas de predicción de un valor usando otros valores en el conjunto de datos. El algoritmo de aprendizaje intenta descubrir y modelar la relación entre el objetivo característico recibiendo instrucciones claras sobre lo que necesitan aprender y cómo deben aprenderlo, el proceso de entrenamiento de un modelo predictivo se conoce como aprendizaje supervisado.
+
+-   Modelo Descriptivo: se utiliza para tareas que se beneficiarían de la información obtenida al resumir datos de formas nuevas e interesantes. A diferencia de los modelos predictivos que predicen un objetivo de interés, manteniendo la misma importancia para todas las características de dicho objetivo. De tal manera que el modelo también es llamado aprendizaje sin supervisión
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
