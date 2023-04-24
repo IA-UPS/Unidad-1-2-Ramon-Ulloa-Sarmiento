@@ -271,3 +271,43 @@ Para extraer columnas enteras la forma más directa es referirse por el nombre:
  pt_data$subject_name
  pt_data[c("temperature", "flu_status")]
 ```
+
+Podemos extraer valores del data frame, sin embargo se debe especificar la posición de las filas (primero) y columnas (segundo).
+
+```{r}
+pt_data[1, 2]
+```
+
+En caso de necesitar mas de una fila o columna se lo debe escribir de la siguiente manera:
+
+```{r}
+ pt_data[c(1, 3), c(2, 4)]
+```
+
+Para extraer todas las filas o columnas, se debe dejar en blanco la parte de la fila o columna.
+
+```{r}
+pt_data[, 1]
+pt_data[1, ]
+pt_data[ , ]
+```
+
+Asi mismo para extraer valores en lista o excluir valores se puede utilizar los comandos que se utilizaron en vectores y listas.
+
+```{r}
+pt_data[c(1, 3), c("temperature", "gender")]
+pt_data[-2, c(-1, -3, -5)]
+```
+
+### MATRICES Y ARRAYS
+
+La matriz es una estructura bidimensional que puede contener cualquier tipo de de datos, aunque por lo general almacena datos numericos debido a que es utilizada para operaciones matemáticas.
+
+Para crear una matriz se utiliza la función matrix( ) :
+
+```{r}
+m <- matrix(c('a', 'b', 'c', 'd'), nrow = 2)
+m
+m1 <- matrix(c('a', 'b', 'c', 'd'), ncol = 2)
+m1
+```
