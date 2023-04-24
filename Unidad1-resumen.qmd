@@ -131,29 +131,113 @@ Para hacer doincidir una tarea de aprendizaje con un enfoque autom\[atico es nec
 
 #### Uso de R para el aprendizaje automático
 
-#### 
+Es una herramienta muy util para el el aprendizaje automático y gracias a que es un código abierto no hay cargo adicional por funcionalidad, una comunidad de expertos que contribuyen al software.
 
 ### Instalación y carga de paquetes R
+
+La forma más directa de instalar un paquete es con la función install.packages( ).
+
+$$>install.packages("RWeka")$$
+
+R se conectará a CRAN y descargará el paquete en el formato correcto para su sistema operativo.
+
+Si necesita instalar un paquete desde otra ubicación se puede usar el siguiente comando:
+
+$$>install.packages("RWeka", lib="/path/to/library")$$
 
 # Gestión y comprender los datos
 
 ### Estructuras de datos R
 
+Las estructuras de datos que se utilizan en R están diseñadas con el fin de facilitar la manipulación de los datos, las estructuras más utilizadas son: vectores, factores, listas, matrices y marco de datos.
+
 ### Vectores
+
+Estructura fundamental, almacena un conjunto ordenado de valores llamdo elementos. Dentro del vector todos los elementos deben ser del mismo tipo.
+
+Existen varios tipos de vectores:
+
+-   Entero: sin decimales
+
+-   Numérico: con decimales
+
+-   Personajes: datos de texto
+
+-   Lógico: Verdadero o falso
+
+Para la creación de vectores se puede utilizar:
+
+```{r}
+subject_name <- c("John Doe", "Jane Doe", "Steve Graves")
+temperature <- c(98.1, 98.6,101.4)
+flu_status <- c(FALSE, FALSE, TRUE)
+```
+
+Para lograr extraer un dato específico se utiliza el comando:
+
+```{r}
+temperature[2]
+temperature[2:3]
+```
+
+Para excluir valores se puede utilizar el símbolo (-):
+
+```{r}
+temperature[-2]
+```
+
+Otra forma para excluir datos es con el siguiente comando:
+
+```{r}
+temperature[c(TRUE, TRUE, FALSE)]
+```
 
 ### Factores
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+Los rasgos que representan una características con categorías de valores son llamdos nominales.
+
+Para este tipo de datos existe una estructura específica en R conocida como factor, este es un caso especial de vector.
+
+Para crear un factor a partir de un vector de character se debe aplicar *factor ( )*
 
 ```{r}
-1 + 1
+gender <- factor(c("MALE","FEMALE", "MALE"))
+gender
 ```
 
-You can add options to executable code like this
+Los niveles comprenden un conjunto de posibles categor\[ia que podr\[ian tomar los datos, al crear factores se puede agregar niveles adicionales:
 
 ```{r}
-#| echo: false
-2 * 2
+blood <- factor(c("O","AB","A"),levels=c("A","B","AB","O"))
+blood
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+### LISTAS
+
+Se utiliza para almacenar un conjunto ordenado de valores. Permite recopilar diferentes tipos de valores:
+
+```{r}
+subject_name[1]
+temperature[1]
+flu_status[1]
+gender[1]
+blood[1]
+```
+
+Esta estructura no permite agregar todos los datos m\[edicos de un paciente en un objeto que se utilice de manera repetida
+
+```{r}
+subject1 <- list(fullname = subject_name[1],
+temperature = temperature[1],
+flu_status = flu_status[1],
+gender = gender[1],
+blood = blood[1])
+```
+
+```{r}
+subject1$fullname
+subject1$temperature
+subject1$flu_status
+subject1$gender
+subject1$blood
+```
