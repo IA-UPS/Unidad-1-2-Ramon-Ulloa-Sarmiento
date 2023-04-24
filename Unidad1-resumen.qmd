@@ -54,11 +54,15 @@ El aprendizaje de una maquina tiene un procedimiento similar a un humano, esta s
 
 -   Generalización: Utiliza datos abstractos parra formar una base para la acción
 
-Las estrategias de aprendizaje comúnmente utilizadas para crear un esquema o un mapa conceptual son similares a cómo una máquina realiza la abstracción del conocimiento
+Las estrategias de aprendizaje comúnmente utilizadas para crear un esquema o un mapa conceptual son similares a cómo una máquina realiza la abstracción del conocimiento.
 
 En los seres humanos, todo el proceso ocurre de manera subconsciente. Recordamos, deducimos, inducimos e intuimos. Sin embargo, para una computadora, estos procesos deben hacerse explícitos. Por otro lado, este es un beneficio del aprendizaje automático. Debido a que el proceso es transparente, el conocimiento aprendido se puede examinar y utilizar para acciones futuras.
 
 ### **ABSTRACCION Y REPRESENTACION DEL CONOCIMEINTO**
+
+La abstracción de datos tiene el trabajo de asignar un significado a los datos, mientras que la representación del conocimiento es la formación de estructuras lógicas que ayudan a convertir la información sensorial en bruto en una percepción significativa.
+
+Capacitación: Proceso de ajustar un modelo particular a un conjunto de datos.
 
 ### **GENERALIZACIÓN**
 
