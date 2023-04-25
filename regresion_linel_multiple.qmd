@@ -1,0 +1,72 @@
+---
+title: "Regresion_lineal_multiple"
+author: "Nelson Sarmiento","Nayeli Ramon", "Valeria Ulloa"
+format: pdf
+editor: visual
+---
+
+# Aprendizaje estadístico
+
+En general, la relación de los valores de entrada y salida se puede escribir de la sifuiente forma:
+
+$$ Y = f(X) + ∊ $$
+
+Esto se centra en la estimación de f desde varios enfoques. Existen 2 razones principales para estimar f:
+
+### Predicción
+
+En este punto es necesario entender que un conjunto de entradas (x) está facilmente disponible mientras que las salidas (y) no son faciles de obtener ya que existe la posibilidad del error, si tomamos que el término de error es un promedio 0 pordemos predecir siguiendo la fórmula:
+
+$$ Y' = f'(X) $$
+
+f' : estimación para f.
+
+Y': predicción resultante para Y.
+
+Por lo general, dentro de esta fórmula la forma de f' no es tomada en cuenta siempre que produzca las predicciones precisas para Y.
+
+La precisión de Y' depende de 2 errores el reducible y el irreducible.
+
+-   Reducible: Este error se puede minimizar usando la técnica de aprendizaje estadístico, más apropiada para estimar f.
+-   Irreducible: Este error se debe a que Y también en una función de ∊.
+
+### Inferencia
+
+Dentro de la inferencia es necesario tomar en cuenta que nos interesa saber la forma exacta de f'. Esto se debe a que nos interesa conocer la asociación entre cada variable y probabilidad a diferencia de la predicción que se interesa más en la precisión del resultado.
+
+## Estimar f
+
+Una forma de estimar f es aplicar el método de aprendizaje estadístico a los datos de entrenamiento, estos métodos se pueden caracterizar como paramétricos y no paramétricos:
+
+-   Paramétricos: se basa en modelos de 2 pasos, hacer la suposición de la forma funcional y utilizar el procedimeinto que use los datos de entrenamiento para ajustar el modelo. Este enfoque reduce el problema de estimar f a estimar un conjunto de parámetros.
+
+    nota: Una desventaja de este enfoque es que el modelo por lo general no coincide con la verdadera forma de f.
+
+-   No paramétricos: No se hace supociones de la forma funcional de f, se busca una estimación de f que se acerque lo mejor posible a los puntos de datos sin ser demasiado ondulado. Evita la posibilidad que el modelo no se ajuste a los datos.
+
+    nota: Una desventaja es que se requiere un gran numero de observaciones para obtener la estimación precisas de f.
+
+# Regresión lineal
+
+### Regresión lineal simple
+
+Este método es directo que busca predecir una respuesta cuantitativa de Y sobre una variable X. Supone una relacion aproximadamente lineal entre las variables que se puede representar:
+
+$$Y ≈ 𝛽0 + 𝛽1X$$ β0 y β1 son constantes que representan la intersección y pendiente dentro del modelo lineal, llamados coeficientes del modelo.
+
+### Estimación de coeficientes
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
