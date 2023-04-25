@@ -589,10 +589,58 @@ round(color_pct, digits = 1)
 
 #### Medición de la tendencia central: la moda
 
+La moda es el valor que más se repite, esta es una medida de tendencia central. Se suele usar para datos categóricos. Una variable puede tener más de una moda.
+
+Es unimodal si solo cuenta con una moda, bimodal si cuneta con 2 modas y multimodal si tiene múltiples modas.
+
+Las modas se utilizan en un sentido cualitativo para obtener una comprensión de los valores importantes en un conjunto de datos. Sin embargo, sería peligroso poner demasiado énfasis en la moda ya que el valor más común no es necesariamente una mayoría.
+
 ### EXPLORANDO RELACIONES ENTRE VARIABLES
+
+Las estadísticas que hasta ahora hemos calculado son unicamente univariantes, sin embargo existen preguntas que requieren un enfoque bivariante o multivariante, los cuales se analizaran a continuación.
 
 #### Visualización de relaciones: diagramas de dispersión
 
+Un diagrama de dispersión permite la visualización de una relación bivariada, es una figura bidimensional en la que se dibujan los puntos en un plano de coordenadas utilizando 'x' como horizontales,'y' como verticales.
+
+La colocación de los puntos de los puntos revelan asociaciones subyacentes entre las dos características.
+
+```{r}
+plot(x = usedcars$mileage, y = usedcars$price, main = "Scatterplot of Price vs. Mileage", xlab = "Used Car Odometer (mi.)", ylab = "Used Car Price ($)")
+```
+
+Dando como resultado un gráfico similar a:
+
+![Diagrama de dispersión](dispersion.png)
+
+Si analizamos el diagrama se puede observar como cambian los valores de la variable del eje y a medida que aumentan los valores del eje x.
+
 #### Examen de las relaciones: tabulaciones cruzadas de dos factores
 
-#### 
+Para examinar una relación entre dos variables nominales, se utiliza una tabulación cruzada bidireccional la cual es similar a un diagrama de dispersión en el sentido de que permite examinar cómo cambian los valores de una variable en función de los valores de otra. El formato es una tabla en la que las filas son los niveles de una de una variable y las columnas son los niveles de otra.
+
+Como se sabe existen varias funciones para crear una tabla en R, una de las funciones más facil de usar es CrossTable( ) del paquete gmodels debido a que presenta los porcentajes de fila, columna en una sola tabla, facilitando el proceso. Para instalar este paquete se utiliza:
+
+```{r}
+install.packages("gmodels")
+```
+
+Posterior a esto se debe cargar el paquete con la función library(gmodels).
+
+Para continuar con el análisis, simplificaremos los niveles de la variable color, para esto se dividirá los colores en 2 grupos creando una variable indicadora binaria (variable ficticia), que indica el color del coche, si es un color conservador según nuestra definición su valor será 1 (verdadero) y 0 si no lo es.
+
+```{r}
+usedcars$conservative <- usedcars$color %in% c("Black", "Gray", "Silver", "White")
+```
+
+Dentro de la función antes mencionada se debe mencionar que el comando %in% regresa verdadero o falso para cada valor en el vector. Para examinar los resultados de nuestra tabla creada podemos utilizar el comando:
+
+```{r}
+table(usedcars$conservative)
+```
+
+Al ver una tabulación cruzada se puede observar como varía la proporción de color conservador según el modelo. Utilizaremos el comando CrossTable( ):
+
+```{r}
+CrossTable(x = usedcars$model, y = usedcars$conservative)
+```
