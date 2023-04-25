@@ -62,7 +62,7 @@ La ecuación se representaría como: "Regresión de Y sobre X", en donde 𝛽0+�
 
 ### Estimación de coeficientes 𝛽0+𝛽1
 
-El objetivo principal es obtener valores pertenecientes a cada uno de los coeficientes, tal que, se logre obtener o describir un modelo lineal, esto se logra mediante la representación de "pares de observaciones " en las cuales se obtengan una medida de X y una medida de Y, eso con el objetivo de tener estimaciones para los coeficientes 𝛽0, 𝛽1 tal que el modelo se ajuste a los datos disponibles hasta encontrar una intersección 𝛽0 y una pendiente 𝛽1, esto se lo puede lograr con el criterio de mínimos cuadrados. Se muestra un ejemplo de la relación lineal entre las ventas de una empresa y los gastos de publicidad en TV.
+El objetivo principal es obtener valores pertenecientes a cada uno de los coeficientes, tal que, se logre obtener o describir un modelo lineal, esto se logra mediante la representación de "pares de observaciones" en las cuales se obtengan una medida de X y una medida de Y, eso con el objetivo de tener estimaciones para los coeficientes 𝛽0, 𝛽1 tal que el modelo se ajuste a los datos disponibles hasta encontrar una intersección 𝛽0 y una pendiente 𝛽1, esto se lo puede lograr con el criterio de mínimos cuadrados. Se muestra un ejemplo de la relación lineal entre las ventas de una empresa y los gastos de publicidad en TV.
 
 imagen
 

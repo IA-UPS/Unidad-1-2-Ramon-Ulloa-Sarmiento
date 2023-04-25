@@ -337,13 +337,13 @@ Las herramientas de R para cargar datos son muy utiles a la hora de trabajar con
 Para una estructura de datos en particular en un archivo que pueda volver a cargarse más tarde, puede usar la funcion save( ) la cual permite estructuras de datos R en la ubicacion deseada. Se puede guardar los archivos en una extension RData.
 
 ```{r}
-
+save(x, y, z, file = "mydata.RData")
 ```
 
-El comando ... recreará las estructuras de datos ya guardadas que se encuentran en RData.
+El comando load( ) recreará las estructuras de datos ya guardadas que se encuentran en RData.
 
 ```{r}
-
+load("mydata.RData")
 ```
 
 ### IMPORTAR Y GUARDAR DATOS DE ARCHIVOS CSV
@@ -354,26 +354,22 @@ Un archivo de datos tabular tiene una estructura de matriz, de modo que se pueda
 
 El archivo de datos tabular más conocido es el Comma Separated Values (CSV) el cual utiliza una coma como delimitador, estos pueden importarse o exportarse desde varias aplicaciones comunes.
 
-```{r}
-
-```
-
 Para cargar este archivo se utiliza:
 
 ```{r}
-
+pt_data <- read.csv("pt_data.csv", stringsAsFactors = FALSE)
 ```
 
 Si sus datos no se encuentran en el directorio se puede especificar la ruta del archivo CSV. Al llamar la funcion read.csv( ) por defecto R asume que el archivo incluye un encabezado con los nombres de las características del conjunto de datos, en caso de no tenerlo se debe especificar con la opción header=FALSE.
 
 ```{r}
-
+mydata <- read.csv("mydata.csv", stringsAsFactors = FALSE,header = FALSE)
 ```
 
 Para guardar un data frame en un archivo CSV se utiliza la opción write:
 
 ```{r}
-
+write.csv(pt_data, file = "pt_data.csv")
 ```
 
 ### IMPORTACION DE DATOS DE BASES DE DATOS SQL
@@ -381,49 +377,55 @@ Para guardar un data frame en un archivo CSV se utiliza la opción write:
 Se necesita instalar RODBC:
 
 ```{r}
-
+install.packages("RODBC")
+library(RODBC)
 ```
 
 Se abre la conexión llamada mydb la base de datos con el DSNmi_dsn:
 
 ```{r}
-
+mydb <- odbcConnect("my_dsn")
 ```
 
 SI su conexión requiere de un nombre de usuario y una contraseña se debe especificar al llamar la funcion odbcConnect( ):
 
 ```{r}
-
+mydb <- odbcConnect("my_dsn", uid = "my_username", pwd = "my_password")
 ```
 
 La función sqlQuery( ) utiliza consultas SQL típicas como se muestra:
 
 ```{r}
-
+patient_query <- "select * from patient_data where alive = 1"
+patient_data <- sqlQuery(channel = mydb, query = patient_query, stringsAsFactors = FALSE)
 ```
 
 Se cierra la conexión con:
 
 ```{r}
-
+odbcClose(mydb)
 ```
 
 ### EXPLORACIÓN Y COMPRENSIÓN DE DATOS
 
 El siguiente paso en el proceso de aprensizaje automático es examinar los datos, para esto cargaremos los datos utilizando el read.csv( ).
 
+```{r}
+usedcars <- read.csv("usedcars.csv", stringsAsFactors = FALSE)
+```
+
 #### Exploranco la estructura de los datos
 
 Para esto usar la función str( ) proporciona un método para mostrar el data frame o cualquier estructura, se utiliza para crear el esquema básico de nuestro data dictionary:
 
 ```{r}
-
+str(usedcars)
 ```
 
 Se puede extraer las características de los datos como la característica color:
 
 ```{r}
-
+usedcards$color
 ```
 
 #### Explorando variables numéricas
@@ -431,13 +433,13 @@ Se puede extraer las características de los datos como la característica color
 Para conocer las variables numéricas se emplea un conjunto de medidas de uso común llamado summary statistics (resumen estadístico), esta función muestra estadísticas comunes resumidas:
 
 ```{r}
-
+summary(usedcars$year)
 ```
 
 este función también se la puede usar para obtener estadísticas de varias variables numéricas al mismo tiempo:
 
 ```{r}
-
+summary(usedcars[c("price", "mileage")])
 ```
 
 #### Medición de la tendencia central: media y mediana
@@ -445,19 +447,19 @@ este función también se la puede usar para obtener estadísticas de varias var
 El promedio es una medida definida como la suma de todos los valores dividida para el número de valores.
 
 ```{r}
-
+(36000 + 44000 + 56000) / 3
 ```
 
 Existe una función dentro de R para realizar esta operación:
 
 ```{r}
-
+mean(c(36000, 44000, 56000))
 ```
 
 Por otro lado la mediana es una medida de tendencia central que representa el valor de la mitad de una lista ordenada de valores. Para esto utilizaremos la fórmula de R:
 
 ```{r}
-
+median(c(36000, 44000, 56000))
 ```
 
 #### Medición de la dispersión: Cuartiles y resumen de cinco números
@@ -482,3 +484,40 @@ Resumen de cinco numeros: conjunto de 5 estadíticas que representan una aproxim
     range(usedcars$price)
     diff(range(usedcars$price))
     ```
+
+Q1 y Q3 son el valor por debajo o por encima del cual se encuentra una cuarta parte de los valores, su diferencia se conoce como rango intercuartil (IQR):
+
+```{r}
+IQR(usedcars$price)
+```
+
+La funcion cuantil devuelve el resumen de cinco números:
+
+```{r}
+quantile(usedcars$price)
+```
+
+Si se especifica el parámetro adicional probs mediante un vector que denote puntos de corte se pued obtener cuantiles arbitrarios con percentiles de 1 y 99:
+
+```{r}
+ quantile(usedcars$price, probs = c(0.01, 0.99))
+```
+
+La función seq( ) se utiliza para generar vectores de valore sque esten espaciados de manera uniforme:
+
+```{r}
+quantile(usedcars$price, seq(from = 0, to = 1, by = 0.20))
+```
+
+#### Visualización de varibales numéricas: diagramas de caja
+
+Una visualización común del resumen de cinco números es un diagrama de caja, este grafico muestra el centro y la dispersión de una variable numérica de modo que permite obtener una idea del rango y sesgo o para la comparación con otras variables.
+
+Al usar la funcion boxplot( ) se debe especificar algunos parámetros adicionales, se utiliza el código de:
+
+```{r}
+boxplot(usedcars$price, main="Boxplot of Used Car Prices", ylab="Price ($)")
+boxplot(usedcars$mileage, main="Boxplot of Used Car Mileage", ylab="Odometer (mi.)")
+```
+
+Se muestran diagramas como se observan en la figura 2:
