@@ -311,3 +311,174 @@ m
 m1 <- matrix(c('a', 'b', 'c', 'd'), ncol = 2)
 m1
 ```
+
+Con este comando R carga primero la columna 1 de la matriz y luego la columna 2, esto se le conoce como orden de columna principal. Veamos un ejemplo con 6 valores:
+
+```{r}
+m <- matrix(c('a', 'b', 'c', 'd', 'e', 'f'), nrow = 2)
+m
+m1 <- matrix(c('a', 'b', 'c', 'd', 'e', 'f'), ncol = 2)
+m1
+```
+
+Al igual que los data frame los valores de las matrices se puede extraer usando \[fila, columna\]
+
+```{r}
+ m[1, ]
+ m[, 1]
+```
+
+### GESTION DE DATOS CON R
+
+Las herramientas de R para cargar datos son muy utiles a la hora de trabajar con conjuntos de datos extensos.
+
+#### GUARDAR Y CARGAR ESTRUCTURAS DE DATOS R
+
+Para una estructura de datos en particular en un archivo que pueda volver a cargarse más tarde, puede usar la funcion save( ) la cual permite estructuras de datos R en la ubicacion deseada. Se puede guardar los archivos en una extension RData.
+
+```{r}
+
+```
+
+El comando ... recreará las estructuras de datos ya guardadas que se encuentran en RData.
+
+```{r}
+
+```
+
+### IMPORTAR Y GUARDAR DATOS DE ARCHIVOS CSV
+
+Existen varios formatos para almacenar los datos publicamente, los archivos de texto son un claro ejemplo de esto y es considerado casi universal.
+
+Un archivo de datos tabular tiene una estructura de matriz, de modo que se pueda tener en cada fila un ejemplo y el mismo número de características, los valores de estas características se encuentran separadas por un delimitador (símbolo predefinido) .
+
+El archivo de datos tabular más conocido es el Comma Separated Values (CSV) el cual utiliza una coma como delimitador, estos pueden importarse o exportarse desde varias aplicaciones comunes.
+
+```{r}
+
+```
+
+Para cargar este archivo se utiliza:
+
+```{r}
+
+```
+
+Si sus datos no se encuentran en el directorio se puede especificar la ruta del archivo CSV. Al llamar la funcion read.csv( ) por defecto R asume que el archivo incluye un encabezado con los nombres de las características del conjunto de datos, en caso de no tenerlo se debe especificar con la opción header=FALSE.
+
+```{r}
+
+```
+
+Para guardar un data frame en un archivo CSV se utiliza la opción write:
+
+```{r}
+
+```
+
+### IMPORTACION DE DATOS DE BASES DE DATOS SQL
+
+Se necesita instalar RODBC:
+
+```{r}
+
+```
+
+Se abre la conexión llamada mydb la base de datos con el DSNmi_dsn:
+
+```{r}
+
+```
+
+SI su conexión requiere de un nombre de usuario y una contraseña se debe especificar al llamar la funcion odbcConnect( ):
+
+```{r}
+
+```
+
+La función sqlQuery( ) utiliza consultas SQL típicas como se muestra:
+
+```{r}
+
+```
+
+Se cierra la conexión con:
+
+```{r}
+
+```
+
+### EXPLORACIÓN Y COMPRENSIÓN DE DATOS
+
+El siguiente paso en el proceso de aprensizaje automático es examinar los datos, para esto cargaremos los datos utilizando el read.csv( ).
+
+#### Exploranco la estructura de los datos
+
+Para esto usar la función str( ) proporciona un método para mostrar el data frame o cualquier estructura, se utiliza para crear el esquema básico de nuestro data dictionary:
+
+```{r}
+
+```
+
+Se puede extraer las características de los datos como la característica color:
+
+```{r}
+
+```
+
+#### Explorando variables numéricas
+
+Para conocer las variables numéricas se emplea un conjunto de medidas de uso común llamado summary statistics (resumen estadístico), esta función muestra estadísticas comunes resumidas:
+
+```{r}
+
+```
+
+este función también se la puede usar para obtener estadísticas de varias variables numéricas al mismo tiempo:
+
+```{r}
+
+```
+
+#### Medición de la tendencia central: media y mediana
+
+El promedio es una medida definida como la suma de todos los valores dividida para el número de valores.
+
+```{r}
+
+```
+
+Existe una función dentro de R para realizar esta operación:
+
+```{r}
+
+```
+
+Por otro lado la mediana es una medida de tendencia central que representa el valor de la mitad de una lista ordenada de valores. Para esto utilizaremos la fórmula de R:
+
+```{r}
+
+```
+
+#### Medición de la dispersión: Cuartiles y resumen de cinco números
+
+Para poder conocer la diversidad de los datos es necesario utilizar otras estadísticas resumidas, en este caso el resumen de cinco números.
+
+Resumen de cinco numeros: conjunto de 5 estadíticas que representan una aproximación de la dispersión de datos:
+
+-   Mínimo (mín)
+
+-   Primer cuartil (Q1)
+
+-   Mediana (Q2)
+
+-   Tercer cuartil (Q3)
+
+-   Máximo (máx)
+
+-   Rango: Diferencia entre el valor mínimo y máximo. Dentro de R se utilizan 2 funciones range( ) y diff( ) para calcular el rango con un solo comando.
+
+    ```{r}
+    range(usedcars$price)
+    diff(range(usedcars$price))
+    ```
