@@ -521,3 +521,78 @@ boxplot(usedcars$mileage, main="Boxplot of Used Car Mileage", ylab="Odometer (mi
 ```
 
 Se muestran diagramas como se observan en la figura 2:
+
+![Diagramas de caja](Diagramas%20de%20caja.png){fig-align="center"}
+
+#### Visualización de variables numéricas - histogramas
+
+Es histograma es una forma de representar graficamente la dispersión de una variable numérica es similar a un diagrama de caja, divide los valores de la variable en un número predefinido de porciones.
+
+Se puede crear un histograma usando la función hist( ), al igual que en el diagrama de caja se debe especificar un título para la figura.
+
+```{r}
+hist(usedcars$price, main = "Histogram of Used Car Prices", xlab = "Price ($)")
+hist(usedcars$mileage, main = "Histogram of Used Car Mileage", xlab = "Odometer (mi.)")
+```
+
+#### Comprensión de datos numéricos: distribuciones uniformes y normales
+
+La distribución de una variable describe la probabilidad de que un valor caiga dentro de varios rangos, si todos los valores tienen la misma probabilidad de ocurrir se dice que la distribución es uniforme, al visualizarse en un histograma se lo puede observar de la siguiente forma:
+
+![Distribución uniforme](distribucion%20uniforme.png)
+
+La distribución normal sucede cuando los valores tienen diferente probabilidad de suceder, si lo visualizamos en un histograma se puede observar una forma de campana.
+
+![Distribución normal](normal.png)
+
+#### Medición de la dispersión: varianza y desviación estándar
+
+La distribución normal se puede definir con solo dos: centro y dispersión. El centro de la distribución normal se define por su valor medio, la propagación se mide con la desviación estándar. Para obtener la variancia y desviación estándar en R se utilizan las funciones:
+
+```{r}
+#Varianza
+var(usedcars$price)
+var(usedcars$mileage)
+#Desviación estándar
+sd(usedcars$price)
+sd(usedcars$mileage)
+```
+
+En la varianza, los números más grandes indican que los datos se distribuyen más ampliamente alrededor de la media.
+
+La desviación estándar indica, en promedio, cuánto difiere cada valor de la media.
+
+#### Explorando variables categóricas
+
+Los datos categóricos se examinan mediante tablas en lugar de estadísticas de resumen, una tabla con una sola variables categórica se conoce como tabla unidireccional. Para esto se usa la función table( ).
+
+```{r}
+table(usedcars$year)
+table(usedcars$model)
+table(usedcars$color)
+```
+
+R puede realizar el cálculo de las porciones de la tabla directamente usando el comando prop.table( ) en una tabla creada por la función table( ):
+
+```{r}
+model_table <- table(usedcars$model)
+prop.table(model_table)
+```
+
+Los resultados obtenidos con porp.table( ) se puede combinar con otras funciones de para transformar la salida.
+
+```{r}
+color_table <- table(usedcars$color)
+color_pct <- prop.table(color_table) * 100
+round(color_pct, digits = 1)
+```
+
+#### Medición de la tendencia central: la moda
+
+### EXPLORANDO RELACIONES ENTRE VARIABLES
+
+#### Visualización de relaciones: diagramas de dispersión
+
+#### Examen de las relaciones: tabulaciones cruzadas de dos factores
+
+#### 
